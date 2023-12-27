@@ -1,9 +1,9 @@
-import AddcustomerPage from "../../components/templates/AddcustomerPage"
+import AddcustomerPage from "../../components/templates/AddcustomerPage";
+
+
 
 function index() {
-  return (
-  <AddcustomerPage/>
-  )
+  return <AddcustomerPage />;
 }
 
-export default index
+export default index;
