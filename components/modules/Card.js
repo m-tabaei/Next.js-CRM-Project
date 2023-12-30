@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 
 function Card({ customer }) {
   const router = useRouter();
+  const lastFiveDigits = customer._id.slice(-5);
+
   const deleteHandler = async () => {
     const res = await fetch(`/api/delete/${customer._id}`, {
       method: "DELETE",
@@ -14,13 +16,13 @@ function Card({ customer }) {
     <div className="card">
       <div className="card__details">
         <p>
-          Name: {customer.name}
+          No. : 
+          {lastFiveDigits}
         </p>
-          <p>
-            
-            Last Name:{customer.lastName}
-            </p>
-        <p>phone: {customer.phone}</p>
+        <p>
+          {customer.name} {customer.lastName}
+        </p>
+        <p>{customer.email}</p>
       </div>
       <div className="card__buttons">
         <button onClick={deleteHandler}>Delete</button>

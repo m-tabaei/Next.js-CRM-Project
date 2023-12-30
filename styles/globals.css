@@ -279,3 +279,24 @@ h4 {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+@media print {
+  @page {
+    size: landscape;
+  }
+  .customer-detail__buttons {
+    display: none;
+  }
+  .footer {
+    display: none;
+  }
+  .header {
+    display: none;
+  }
+  .customer-detail {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .customer-detail__products {
+    display: none;
+  }
+}

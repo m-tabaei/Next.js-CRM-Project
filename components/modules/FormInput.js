@@ -4,9 +4,9 @@ function FormInput({ name, label, type, value, onChange }) {
       <label htmlFor={name}>{label}</label>
       <input
         type={type}
-        value={value}
         id={name}
         name={name}
+        value={value}
         onChange={onChange}
       />
     </div>
