@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import CustomerEditPage from './../../components/templates/CustomerEditPage';
+import Head from 'next/head';
 
 function Index() {
   const [data, setData] = useState(null);
@@ -19,7 +20,14 @@ function Index() {
     }
   }, [isReady]);
 
-  if (data) return <CustomerEditPage data={data} id={customerId} />;
+  if (data) return( 
+    <>
+  <Head>
+<title>Edit customer details</title>
+  </Head>
+  <CustomerEditPage data={data} id={customerId} />
+    </>
+  )
 }
 
 export default Index;

@@ -51,3 +51,4 @@ function CustomerEditPage({ data, id }) {
 }
 
 export default CustomerEditPage;
+

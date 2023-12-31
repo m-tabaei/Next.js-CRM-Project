@@ -29,7 +29,9 @@ a {
 .main {
   min-height: 85vh;
 }
-
+.Saller{
+  display: none;
+}
 .footer {
   background-color: #262836;
   text-align: center;
@@ -297,6 +299,15 @@ h4 {
     margin: 0 auto;
   }
   .customer-detail__products {
+    display: none;
+  }
+  .Saller{
+    display: block;
+  }
+  h4{
+    display: none;
+  }
+  .email{
     display: none;
   }
 }

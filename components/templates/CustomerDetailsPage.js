@@ -20,6 +20,7 @@ function CustomerDetailsPage({ data }) {
       <h4>Customer's Details</h4>
       <div className="customer-detail__main">
         <div className="customer-detail__item">
+     
           <span>Name: </span>
           <p>{data.name}</p>
         </div>
@@ -27,7 +28,7 @@ function CustomerDetailsPage({ data }) {
           <span>Last Name: </span>
           <p>{data.lastName}</p>
         </div>
-        <div className="customer-detail__item">
+        <div className="customer-detail__item email">
           <span>Email: </span>
           <p>{data.email}</p>
         </div>
@@ -65,7 +66,10 @@ function CustomerDetailsPage({ data }) {
         <button onClick={deleteHandler}>Delete</button>
         <Link href={`/edit/${data._id}`}>Edit</Link>
         <button onClick={printHandler}>Print</button>
-
+      </div>
+      <div className="Saller">
+        <p>Saller Address :</p>
+        <span>Emperial company , No 7 ,talash3</span>
       </div>
     </div>
   );
