@@ -3,8 +3,12 @@ function Layout({ children }) {
   return (
     <>
       <header className="header">
-        <h2>Emperial CRM</h2>
+        <h2>
+          
+        <Link href="/"> Emperial CRM</Link>
+          </h2>
         <Link href="/add-customer"> Add customer</Link>
+        <Link href="/signup/signup"> SignUp</Link>
       </header>
       <div className="main">{children}</div>
       <footer className="footer">
