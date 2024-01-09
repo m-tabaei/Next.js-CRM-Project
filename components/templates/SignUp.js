@@ -1,8 +1,11 @@
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 function SignUpUser() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const router= useRouter()
 
   const signUpHandler = async () => {
     const res = await fetch("/api/auth/signup", {
@@ -12,6 +15,8 @@ function SignUpUser() {
         "Content-Type": "application/json",
       },
     });
+    const data = await res.json();
+    if (data.status === "success") router.push("/signin") 
   };
   return (
     <div className="customer-page">
