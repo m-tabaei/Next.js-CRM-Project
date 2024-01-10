@@ -1,11 +1,7 @@
 import SignUpUser from "@templates/SignUp";
 
 function signup() {
- 
-
-  return (
-   <SignUpUser/>
-  );
+  return <SignUpUser />;
 }
 
 export default signup;

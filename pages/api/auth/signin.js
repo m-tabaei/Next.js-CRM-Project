@@ -1,3 +1,4 @@
+import { serialize } from "cookie";
 import { sign } from "jsonwebtoken";
 import User from "models/User";
 import { verifyPassword } from "utils/auth";
@@ -31,12 +32,26 @@ async function handler(req, res) {
   }
 
   const isValid = await verifyPassword(password, user.password);
+  
   if (!isValid) {
     return res
       .status(422)
       .json({ status: "faild", message: "Username or password is incorrect!" });
   }
-  const token = sign({ email: email }, secretKey, {expiresIn: expiration});
+  const token = sign({ email: email }, secretKey, { expiresIn: expiration });
+  const serialized = serialize("token", token, {
+    httpOnly: true,
+    maxAge: expiration,
+    path: "/",
+  });
+  res
+    .status(200)
+    .setHeader("Set-Cookie", serialized)
+    .json({
+      status: "success",
+      message: "Logged in!",
+      data: { email: user.email },
+    });
 }
 
 export default handler;

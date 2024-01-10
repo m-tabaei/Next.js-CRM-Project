@@ -9,6 +9,7 @@ function Layout({ children }) {
           </h2>
         <Link href="/add-customer"> Add customer</Link>
         <Link href="/signup/signup"> SignUp</Link>
+        <Link href="/signin/signin"> SignIn</Link>
       </header>
       <div className="main">{children}</div>
       <footer className="footer">
