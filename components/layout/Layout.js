@@ -10,6 +10,7 @@ function Layout({ children }) {
         <Link href="/add-customer"> Add customer</Link>
         <Link href="/signup/signup"> SignUp</Link>
         <Link href="/signin/signin"> SignIn</Link>
+        <Link href="/dashboard/dashboard"> DashBoard</Link>
       </header>
       <div className="main">{children}</div>
       <footer className="footer">

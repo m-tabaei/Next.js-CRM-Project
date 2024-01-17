@@ -5,7 +5,7 @@ import { verifyPassword } from "utils/auth";
 import connectDB from "utils/connectDB";
 
 async function handler(req, res) {
-  if (req.method !== "POST") {
+  if (req.method != "POST") {
     return;
   }
   try {
@@ -32,7 +32,7 @@ async function handler(req, res) {
   }
 
   const isValid = await verifyPassword(password, user.password);
-  
+
   if (!isValid) {
     return res
       .status(422)
