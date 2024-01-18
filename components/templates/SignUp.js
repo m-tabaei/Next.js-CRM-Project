@@ -1,11 +1,20 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 
 function SignUpUser() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const router= useRouter()
+  const router = useRouter();
+
+  useEffect(() => {
+    fetch("/api/user")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success")
+          window.location.href = "/dashboard/dashboard";
+      });
+  }, []);
 
   const signUpHandler = async () => {
     const res = await fetch("/api/auth/signup", {
@@ -16,7 +25,7 @@ function SignUpUser() {
       },
     });
     const data = await res.json();
-    if (data.status === "success") router.push("/signin") 
+    if (data.status === "success") router.push("/signin");
   };
   return (
     <div className="customer-page">

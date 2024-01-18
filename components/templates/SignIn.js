@@ -1,11 +1,20 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 
 function SignInUser() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const router= useRouter()
+  const router = useRouter();
+
+  useEffect(() => {
+    fetch("/api/user")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success")
+          window.location.href = "/dashboard/dashboard";
+      });
+  }, []);
 
   const signInHandler = async () => {
     const res = await fetch("/api/auth/signin", {
@@ -16,11 +25,11 @@ function SignInUser() {
       },
     });
     const data = await res.json();
-    if (data.status === "success") router.push("/dashboard") 
+    if (data.status === "success") router.push("/dashboard/dashboard");
   };
   return (
     <div className="customer-page">
-      <h4>Registration Form</h4>
+      <h4>Log In Form</h4>
       <div className="form-input">
         <div>
           <input

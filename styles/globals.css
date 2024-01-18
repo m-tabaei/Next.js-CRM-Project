@@ -17,6 +17,16 @@ a {
   padding: 0;
   margin: 0;
 }
+button{
+  color: #262836;
+  background-color: #8af1aa;
+  border: 1px solid #8af1aa;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 5px 20px;
+  cursor: pointer;
+}
 
 .header {
   display: flex;
