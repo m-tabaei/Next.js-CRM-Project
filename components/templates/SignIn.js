@@ -12,7 +12,7 @@ function SignInUser() {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success")
-          window.location.href = "/dashboard/dashboard";
+          window.location.href = "/dashboard/order";
       });
   }, []);
 
@@ -25,7 +25,7 @@ function SignInUser() {
       },
     });
     const data = await res.json();
-    if (data.status === "success") router.push("/dashboard/dashboard");
+    if (data.status === "success") router.push("/dashboard/order");
   };
   return (
     <div className="customer-page">

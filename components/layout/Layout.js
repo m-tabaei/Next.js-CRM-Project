@@ -6,16 +6,15 @@ function Layout({ children }) {
     fetch("/api/user")
       .then((res) => res.json())
       .then((data) => {
-        if (data.status=== "success") {
+        if (data.status === "success") {
           setisLoggedIn(true);
-          console.log(data)
         }
       });
   }, []);
   const signOuthandler = async () => {
-    const res = await fetch("/api/auth/signout"); window.location.href = ("/")
-    const data = await res.json();
-    console.log(data);
+    const res = await fetch("/api/auth/signout");
+    window.location.href = "/";
+    alert("Signed out successfully!");
   };
 
   return (
@@ -24,20 +23,18 @@ function Layout({ children }) {
         <h2>
           <Link href="/"> Emperial CRM</Link>
         </h2>
-      {isLoggedIn ? (<>
+        {isLoggedIn ? (
+          <>
             <Link href="/add-customer"> Add customer</Link>
             <button onClick={signOuthandler}>SignOut</button>
-            <Link href="/dashboard/dashboard"> DashBoard</Link>
-      </>): null}
-        
-       
-     
-         {!isLoggedIn ? (<>
+            <Link href="/dashboard/order"> DashBoard</Link>
+          </>
+        ) : (
+          <>
             <Link href="/signup/signup"> SignUp</Link>
             <Link href="/signin/signin"> SignIn</Link>
-        
-         </>): null}
-      
+          </>
+        )}
       </header>
       <div className="main">{children}</div>
       <footer className="footer">
