@@ -1,4 +1,3 @@
-// update-info.js
 
 import connectDB from "../../utils/connectDB";
 import User from "../../models/User";
@@ -54,8 +53,8 @@ async function handler(req, res) {
 
   user.name = name;
   user.lastName = lastName;
-  user.markModified("name"); // Mark the field as modified
-  user.markModified("lastName"); // Mark the field as modified
+  user.markModified("name"); 
+  user.markModified("lastName"); 
   await user.save();
 
   res.status(200).json({

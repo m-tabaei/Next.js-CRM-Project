@@ -13,12 +13,12 @@ function Index() {
   } = router;
 
   useEffect(() => {
-    if (isReady) {
+    if (isReady && customerId) {
       fetch(`/api/customer/${customerId}`)
         .then((res) => res.json())
         .then((data) => setData(data.data));
     }
-  }, [isReady]);
+  }, [isReady, customerId]);
   if (data) return <CustomerDetailsPage data={data} />;
 }
 
