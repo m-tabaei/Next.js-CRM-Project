@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import styles from "@templates/SignupPage.module.css";
+import Link from "next/link";
 
 function SignInUser() {
   const [email, setEmail] = useState("");
@@ -28,31 +30,54 @@ function SignInUser() {
     if (data.status === "success") router.push("/dashboard/order");
   };
   return (
-    <div className="customer-page">
-      <h4>Log In Form</h4>
-      <div className="form-input">
-        <div>
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-      </div>
-      <div className="customer-page__buttons">
-        <button className="second" onClick={signInHandler}>
-          Login
-        </button>
-      </div>
+    // <div  className={styles.form}>
+    //   <h4>LogIn to your account</h4>
+    //     <div>
+    //       <input
+    //         type="text"
+    //         placeholder="Email"
+    //         value={email}
+    //         onChange={(e) => setEmail(e.target.value)}
+    //         />
+    //     </div>
+    //     <div>
+    //       <input
+    //         type="text"
+    //         placeholder="Password"
+    //         value={password}
+    //         onChange={(e) => setPassword(e.target.value)}
+    //         />
+    //     </div>
+
+    //   <div className="customer-page__buttons">
+    //     <button className="second" onClick={signInHandler}>
+    //       Login
+    //     </button>
+    //   </div>
+
+    // </div>
+
+    <div className={styles.form}>
+      <h4>LogIn to your account</h4>
+
+      <label>Email :</label>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <label>Password : </label>
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <button onClick={signInHandler}>Signin</button>
+
+      <p>
+        You have not Account? <Link href="/signup/signup">Signup</Link>
+      </p>
     </div>
   );
 }
